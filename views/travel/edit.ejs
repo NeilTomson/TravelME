@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("header") %> 
+    <style>
+.marker{
+  background-color: rgb(225, 81, 65);
+  height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    left: -1.5rem;
+  top: -1.5rem}
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Edit travel</h1>
+        <form action="/travel/<%= travel.id %>?_method=PUT" method="POST">
+            <%- include("_form") %> 
+
+          
+        </form>
+        <div id="map"></div>
+        <script src="/edit.js"></script>
+    </div>
+  </body>
+</html>

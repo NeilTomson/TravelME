@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("header") %>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4"><%= travel.title %></h1>
+      <div class="card-subtitle text-muted mb-3">
+        <%= travel.createdAt.toLocaleDateString() %>
+      </div>
+
+      <a href="/" class="btn btn-secondary">All travel</a>
+      <a href="/travel/edit/<%- travel.id %>" class="btn btn-primary">edit</a>
+      <div class="card-text mb-1"><%= travel.descrition%></div>
+      <div><%- travel.sanitizedHTML %></div>
+      <div>
+        <div id="lat" data-lat="<%- travel.lat %>"><%- travel.lat %></div>
+        <div id="lng" data-lng="<%- travel.lng %>"><%- travel.lng %></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+<script src="/show.js">
+</script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("header") %> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-2 mb-2"> Travel</h1>
+<div id="map"></div>
+        <a href="/travel/new" class="btn btn-success mt-4">New Travel</a>
+        <% travels.forEach(travel => { %>
+         <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= travel.title %>
+                </h4>
+                <div class="card-subtitle text-muted mb-3">
+                    <%= travel.createdAt.toLocaleDateString() %>  
+                 </div>
+                 <div class="card-text ">
+                    <%= travel.country%>
+                 </div>
+
+                 <div class="card-text mb-1"><%= travel.descrition%> </div>
+                 <a href="/travel/<%= travel.slug %> " class="btn btn-primary">Read more</a>
+                 <form action="/travel/<%= travel.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </div>
+
+        </form>
+        
+         </div>
+         <% }) %> 
+    </div>
+    
+
+<script src="/index.js"></script>   
+</body>
+</html>
